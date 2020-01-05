@@ -7,6 +7,8 @@ export class App extends Component {
     allCharacters: []
   }
 
+  
+
   componentDidMount = async() => {
     let characters = await fetch('http://localhost:3000/superheros')
     let allCharacters = await characters.json()
