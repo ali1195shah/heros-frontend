@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AllCharacters from './components/AllCharacters'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import DetailChatacterPage from './components/DetailCharacterPage'
+import './App.css'
 
 export class App extends Component {
 
@@ -41,7 +42,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='app'>
         {this.state.singleCharacter ? <Redirect to="/character-detail" /> : <Redirect to="/" />}
         <Switch>
           <Route exact path={'/'} render={(...props) => <AllCharacters allCharacters={ this.state.allCharacters } handleClick={ this.handleClick }/> }/>

@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(238, 49, 49);
 }
 
 .App-link {
@@ -35,4 +35,21 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+html body {
+  background-image: linear-gradient(to right, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }
+
+/* 
+html body {
+  background: #5FFBF1;
+  background: -webkit-linear-gradient(to right, #D16BA5, #86A8E7, #5FFBF1);
+  background: linear-gradient(to right, #D16BA5, #86A8E7, #5FFBF1);
+} */
+/* 
+header{
+  background: #5FFBF1;
+  background: -webkit-linear-gradient(to right, #D16BA5, #86A8E7, #5FFBF1);
+  background: linear-gradient(to right, #D16BA5, #86A8E7, #5FFBF1);
+} */
