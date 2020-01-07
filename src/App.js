@@ -24,26 +24,27 @@ export class App extends Component {
   handleClick = (e) => {
     console.log(e.target.id)
     fetch(`http://localhost:3000/superheros/${e.target.id}`)
-    .then(response => response.json())
-    .then(singleCharacter => {
-        this.setState({
-            singleCharacter
-        })
+    .then(r => r.json())
+    .then(character => {
+      this.setState({
+        singleCharacter: character
+      })
     })
   }
 
-  goBack = (e) => {
-    e.preventDefault();
+  goBack = () => {
     this.setState({
       singleCharacter: null
     })
+    // this.props.history.push('/')
   }
 
 
   render() {
+    console.log(this.state);
     return (
       <div className='app'>
-        {this.state.singleCharacter ? <Redirect to="/character-detail" /> : <Redirect to="/" />}
+      {this.state.singleCharacter ? <Redirect to="/character-detail" /> : <Redirect to="/" />}
         <Switch>
           <Route exact path={'/'} render={(...props) => <AllCharacters allCharacters={ this.state.allCharacters } handleClick={ this.handleClick }/> }/>
           <Route exact path={'/character-detail'} render={(...props) => <DetailChatacterPage character={ this.state.singleCharacter } goBack={ this.goBack } />} />
