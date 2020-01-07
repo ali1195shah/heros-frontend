@@ -77,3 +77,35 @@ li + li {
   }
   browsers: last 2 versions
 }
+
+
+
+
+
+
+
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+th {
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  text-align: -internal-center;
+}
+
+td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
