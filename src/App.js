@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import AllCharacters from './components/AllCharacters'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import DetailChatacterPage from './components/DetailCharacterPage'
 import './App.css'
+import Navbar from './components/Navbar'
+
 
 export class App extends Component {
 
@@ -21,22 +23,38 @@ export class App extends Component {
 
   // ===================functions=================
 
-  handleClick = (e) => {
-    console.log(e.target.id)
-    fetch(`http://localhost:3000/superheros/${e.target.id}`)
-    .then(r => r.json())
-    .then(character => {
+  handleClick = (charObject) => {
+    console.log(charObject)
+    // fetch(`http://localhost:3000/superheros/${e.target.id}`)
+    // .then(r => r.json())
+    // .then(character => {
       this.setState({
-        singleCharacter: character
+        singleCharacter: charObject
       })
-    })
+    // })
+
   }
 
   goBack = () => {
     this.setState({
       singleCharacter: null
     })
-    // this.props.history.push('/')
+  }
+
+
+  deleteSuper = (e) => {
+    console.log(e)
+    fetch(`http://localhost:3000/superheros/${e.id}`, {
+      method: 'DELETE'
+    })
+    .then(
+      this.setState({
+        allCharacters: this.state.allCharacters.filter(char => char.id !== e.id),
+        singleCharacter: null
+      }
+        // () => this.props.history.push('/') 
+      )
+    )
   }
 
 
@@ -44,14 +62,15 @@ export class App extends Component {
     console.log(this.state);
     return (
       <div className='app'>
+        <Navbar goBack={ this.goBack }/>
       {this.state.singleCharacter ? <Redirect to="/character-detail" /> : <Redirect to="/" />}
         <Switch>
-          <Route exact path={'/'} render={(...props) => <AllCharacters allCharacters={ this.state.allCharacters } handleClick={ this.handleClick }/> }/>
-          <Route exact path={'/character-detail'} render={(...props) => <DetailChatacterPage character={ this.state.singleCharacter } goBack={ this.goBack } />} />
+          <Route exact path={'/'} render={(props) => <AllCharacters allCharacters={ this.state.allCharacters } handleClick={ this.handleClick }/> }/>
+          <Route exact path={'/character-detail'} render={(props) => <DetailChatacterPage character={ this.state.singleCharacter } goBack={ this.goBack } deleteSuper={ this.deleteSuper } {...props} />} />
         </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

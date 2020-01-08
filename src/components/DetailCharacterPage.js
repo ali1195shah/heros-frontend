@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import './style/Card.scss'
 
 export class DetailCharacterPage extends Component {
+
+    deleteHero = () => {
+        this.props.history.push('/')
+        this.props.deleteSuper(this.props.character)
+    }
+
     render() {
+
+        
         return (
             <div>
 
@@ -32,6 +40,15 @@ export class DetailCharacterPage extends Component {
             
         </ul>
     </center>
+  
+
+    <center>
+        <button id={ this.props.character.id }>{ this.props.character.alignment === 'good' ? 'Edit this Hero' : 'Edit this Villain'}</button>
+        <br />
+        <button id={ this.props.character.id } onClick={ this.deleteHero }>{ this.props.character.alignment === 'good' ? 'Delete this Hero' : 'Delete this Villain'}</button>
+        <br />
+        <button id={ this.props.character.id } onClick={ this.props.goBack } >Go Back</button>
+    </center>
     
 </div>
                 :
@@ -39,9 +56,8 @@ export class DetailCharacterPage extends Component {
                     hi
                 </div>    
         }
-        <div>
-                            <center><button onClick={ this.props.goBack } >Go Back</button></center>
-                        </div>
+                       
+                      
         </div>
         );
     }

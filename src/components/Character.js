@@ -8,7 +8,7 @@ const Character = (props) => {
                 <div className="cards-list">
                     <div className="card 2">
                         <div className="card_image">
-                            <img id={ props.character.id } alt={props.character.name} src={props.character.image_url} onClick={ (e) => props.handleClick(e) } />
+                            <img id={ props.character.id } alt={props.character.name} src={props.character.image_url} onClick={ () => props.handleClick(props.character) } />
                         </div>
                         <div className="card_title title-white">
                             <p onClick={ (e) => props.handleClick(e) } >{props.character.name}</p>
