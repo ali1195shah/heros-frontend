@@ -17,7 +17,9 @@ export class DetailCharacterPage extends Component {
             {this.props.character ? 
 <div> 
     <center><img alt={ this.props.character.name } src={ this.props.character.image_url } style={{width: "250px", height: "350px"}} /></center>
-    <center>{ this.props.character.alignment === 'good' ? <h1>Hero Name: { this.props.character.name }</h1> : <h1>Villain Name: { this.props.character.name } </h1>}</center>
+    <center>
+        {/* { this.props.character.alignment === 'good' ? <h1>Hero Name: { this.props.character.name }</h1> : <h1>Villain Name: { this.props.character.name } </h1>} */}
+        </center>
     <center>
         <ul>
             <li>Real Name: { this.props.character.full_name }</li>
@@ -44,9 +46,11 @@ export class DetailCharacterPage extends Component {
 
     <center>
         <button id={ this.props.character.id }>{ this.props.character.alignment === 'good' ? 'Edit this Hero' : 'Edit this Villain'}</button>
-        <br />
-        <button id={ this.props.character.id } onClick={ this.deleteHero }>{ this.props.character.alignment === 'good' ? 'Delete this Hero' : 'Delete this Villain'}</button>
-        <br />
+        &nbsp;&nbsp;
+        <button id={ this.props.character.id } onClick={ this.deleteHero }>
+            {/* { this.props.character.alignment === 'good' ? 'Delete this Hero' : 'Delete this Villain'} */}
+            </button>
+        &nbsp;&nbsp;
         <button id={ this.props.character.id } onClick={ this.props.goBack } >Go Back</button>
     </center>
     
