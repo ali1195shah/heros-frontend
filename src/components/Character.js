@@ -2,7 +2,7 @@ import React from 'react';
 import './style/Character.scss'
 
 const Character = (props) => {
-
+  const overAll = ((props.character.intelligence + props.character.strength + props.character.power + props.character.durability + props.character.combat + props.character.speed) / 6 ).toFixed()
     return (
 
     
@@ -37,58 +37,79 @@ const Character = (props) => {
 
 // ----------------------
 
-<div className="ui column">
+<div id={ props.character.id } className="ui column">
 <br/>
 <br />
-<div class="card">
-  <div class="ds-top"></div>
-  <div class="avatar-holder">
-    <img onClick={ () => props.handleClick(props.character) } src={ props.character.image_url } alt="Albert Einstein" />
+<div className="card">
+  <div className="ds-top"></div>
+  <div className="avatar-holder">
+    <img src={ props.character.image_url } alt="Albert Einstein" />
   </div>
-  <div class="name">
-    <a href="https://codepen.io/AlbertFeynman/" target="_blank">Albert Feynman</a>
-    <h6 title="Followers"><i class="fas fa-users"></i> <span class="followers">90</span></h6>
+  <div className="name">
+    <a onClick={ () => props.handleClick(props.character) } >{ props.character.name }</a>
+    <h6 title="Followers"><i className="fas fa-users"></i> <span className="followers">{ overAll }</span></h6>
   </div>
-  <div class="button">
-    <a href="#" class="btn" onmousedown="follow();">Follow <i class="fas fa-user-plus"></i></a>
+  <div className="button">
+    <a href="#" className="btn" onmousedown="follow();">Follow <i className="fas fa-user-plus"></i></a>
   </div>
-  <div class="ds-info">
-    <div class="ds pens">
-      <h6 title="Number of pens created by the user">{props.character.place_of_birth} <i class="fas fa-edit"></i></h6>
+  <div className="ds-info">
+    <div className="ds pens">
+      <h6 title="Number of pens created by the user">{props.character.publisher} <i className="fas fa-edit"></i></h6>
       <p>29</p>
     </div>
-    <div class="ds projects">
-      <h6 title="Number of projects created by the user">{ props.character.alignment === 'good' ? 'Hero' : "Villain" } <i class="fas fa-project-diagram"></i></h6>
+    <div className="ds projects">
+      <h6 title="Number of projects created by the user">{ props.character.alignment === 'good' ? 'Hero' : "Villain" } <i className="fas fa-project-diagram"></i></h6>
       <p>0</p>
     </div>
-    <div class="ds posts">
-      <h6 title="Number of posts">{props.character.publisher} <i class="fas fa-comments"></i></h6>
+    <div className="ds posts">
+      <h6 title="Number of posts">{props.character.place_of_birth} <i className="fas fa-comments"></i></h6>
       <p>0</p>
     </div>
   </div>
-  <div class="ds-skill">
-    <h6>Skill <i class="fa fa-code" aria-hidden="true"></i></h6>
-    <div class="skill html">
-      <h6><i class="fab fa-html5"></i> HTML5 </h6>
-      <div class="bar bar-html">
-        <p>95%</p>
+  <div className="ds-skill">
+    <h6>Skill <i className="fa fa-code" aria-hidden="true"></i></h6>
+    <div className="skill html">
+      <h6><i className="fab fa-html5"></i>Intelligence</h6>
+      <div className="bar bar-html" style={{width: `${ props.character.intelligence }%`}}>
+        <p>{props.character.intelligence}</p>
       </div>
     </div>
-    <div class="skill css">
-      <h6><i class="fab fa-css3-alt"></i> CSS3 </h6>
-      <div class="bar bar-css">
-        <p>90%</p>
+    <div className="skill css">
+      <h6><i className="fab fa-css3-alt"></i>Strength</h6>
+      <div className="bar bar-css" style={{width: `${ props.character.strength }%`}}>
+        <p>{ props.character.strength }</p>
       </div>
     </div>
-    <div class="skill javascript">
-      <h6><i class="fab fa-js"></i> JavaScript </h6>
-      <div class="bar bar-js">
-        <p>5%</p>
+    <div className="skill javascript">
+      <h6><i className="fab fa-js"></i>Speed</h6>
+      <div className="bar bar-js" style={{width: `${ props.character.speed }%`}}>
+        <p>{ props.character.speed }</p>
+      </div>
+    </div>
+    <div className="skill javascript">
+      <h6><i className="fab fa-js"></i>Speed</h6>
+      <div className="bar bar-js" style={{width: `${ props.character.durability }%`}}>
+        <p>{ props.character.durability }</p>
+      </div>
+    </div>
+    <div className="skill javascript">
+      <h6><i className="fab fa-js"></i>Power</h6>
+      <div className="bar bar-js" style={{width: `${ props.character.power }%`}}>
+        <p>{ props.character.power }</p>
+      </div>
+    </div>
+    <div className="skill javascript">
+      <h6><i className="fab fa-js"></i>Combat</h6>
+      <div className="bar bar-js" style={{width: `${ props.character.combat }%`}}>
+        <p>{ props.character.combat }</p>
       </div>
     </div>
   </div>
 </div>
+<br />
+<br />
 </div>
+
     );
 }
 

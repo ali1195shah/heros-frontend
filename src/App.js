@@ -70,6 +70,7 @@ export class App extends Component {
     return (
       <div className='app'>
         <Header goBack={ this.goBack }/>
+        <br />
       {this.state.singleCharacter ? <Redirect to="/character-detail" /> : <Redirect to="/" />}
         <Switch>
           <Route exact path={'/'} render={(props) => <AllCharacters allCharacters={ this.state.allCharacters } handleClick={ this.handleClick }/> }/>

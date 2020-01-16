@@ -12,19 +12,19 @@
 // }
 
 body {
-  background: #202020;
+  background: rgb(32, 32, 32);
   font-family: 'Krub', sans-serif;
 }
 
 .card {
-  position: absolute;
+  // position: absolute;
   margin: auto;
 //   top: 0;
 //   right: 0;
 //   bottom: 0;
 //   left: 0;
   width: 250px;
-  height: 400px;
+  height: 500px;
   border-radius: 10px;
   box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
   background: #151515;
@@ -66,7 +66,7 @@ body {
   .name {
     position: absolute;
     margin: auto;
-    top: -60px;
+    top: -255px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -98,7 +98,7 @@ body {
     position: absolute;
     margin: auto;
     padding: 8px;
-    top: 20px;
+    top: -170px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -124,12 +124,12 @@ body {
   .ds-info {
     position: absolute;
     margin: auto;
-    top: 120px;
+    top: 10px;
     bottom: 0;
     right: 0;
     left: 0;
     width: inherit;
-    height: 40px;
+    height: 130px;
     display: flex;
     .pens, .projects, .posts {
       position: relative;
@@ -163,8 +163,8 @@ body {
     right: 0;
     left: 0;
     width: 200px;
-    height: 100px;
-    animation: mvBottom 1.5s;
+    height: 300px;
+    animation: mvBottom 1.0s;
     h6 {
       margin-bottom: 5px;
       font-weight: 700;
@@ -198,17 +198,17 @@ body {
         }
       }
       .bar-html {
-        width: 95%;
+        // width: 100%;
         animation: htmlSkill 1s;
         animation-delay: .4s;
       }
       .bar-css {
-        width: 90%;
+        // width: 40%;
         animation: cssSkill 2s;
         animation-delay: .4s;
       }
       .bar-js {
-        width: 75%;
+        // width: 75%;
         animation: jsSkill 3s;
         animation-delay: .4s;
       }
@@ -234,17 +234,17 @@ body {
 
 @keyframes htmlSkill {
   0% {width: 0;}
-  100% {width: 95%;}
+  100% {width: 50%;}
 }
 
 @keyframes cssSkill {
   0% {width: 0;}
-  100% {width: 90%;}
+  100% {width: 50%;}
 }
 
 @keyframes jsSkill {
   0% {width: 0;}
-  100% {width: 75%;}
+  100% {width: 55%;}
 }
 
 @keyframes mvBottom {
