@@ -3,7 +3,7 @@ import AllCharacters from './components/AllCharacters'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import DetailChatacterPage from './components/DetailCharacterPage'
 import './App.css'
-import Navbar from './components/Navbar'
+import Header from './components/Header'
 import NewSuper from './components/NewSuper'
 
 
@@ -58,48 +58,10 @@ export class App extends Component {
     )
   }
 
-
-
-  makingNewSuper = (e) => {
-    e.preventDefault();
-    console.log(this.state.name)
-    fetch(`http://localhost:3000/superheros`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: this.state.name
-          // intelligence: this.state.ini ,
-          // strength: this.state.str , 
-          // speed: this.state.speed , 
-          // durability: this.state.dur , 
-          // power: this.state.pow , 
-          // combat: this.state.com , 
-          // full_name: this.state.rname ,
-          // aliases: this.state.aliase ,
-          // place_of_birth: this.state.birth ,
-          // // alignment: this.state. ,
-          // // gender: this.state. ,
-          // race: this.state.race , 
-          // // height_feet: this.state. , 
-          // eye_color: this.state.eye , 
-          // hair_color: this.state.hair , 
-          // occupation: this.state.occupation , 
-          // group_affiliation: this.state.groups , 
-          // relatives: this.state.relatives
-          // image_url
-        })
+  updateState = (data) => {
+    this.setState({
+      allCharacters: [...this.state.allCharacters, data]
     })
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        allCharacters: [...this.state.allCharacters, data]
-      })
-    })
-    // .then(data => {
-    //   console.log(data)
-    // })
   }
 
 
@@ -107,12 +69,12 @@ export class App extends Component {
     // console.log(this.state);
     return (
       <div className='app'>
-        <Navbar goBack={ this.goBack }/>
+        <Header goBack={ this.goBack }/>
       {this.state.singleCharacter ? <Redirect to="/character-detail" /> : <Redirect to="/" />}
         <Switch>
           <Route exact path={'/'} render={(props) => <AllCharacters allCharacters={ this.state.allCharacters } handleClick={ this.handleClick }/> }/>
           <Route exact path={'/character-detail'} render={(props) => <DetailChatacterPage character={ this.state.singleCharacter } goBack={ this.goBack } deleteSuper={ this.deleteSuper } {...props} />} />
-          <Route exact path={'/new-sv'} render={(props) => <NewSuper makingNewSuper={ this.makingNewSuper }/> } />
+          <Route exact path={'/new-sv'} render={(props) => <NewSuper {...props} updateState={ this.updateState }  /> }/>
         </Switch>
       </div>
     );

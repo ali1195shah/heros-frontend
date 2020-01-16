@@ -38,35 +38,33 @@ export class NewSuper extends Component {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              name: this.state.name
-              // intelligence: this.state.ini ,
-              // strength: this.state.str , 
-              // speed: this.state.speed , 
-              // durability: this.state.dur , 
-              // power: this.state.pow , 
-              // combat: this.state.com , 
-              // full_name: this.state.rname ,
-              // aliases: this.state.aliase ,
-              // place_of_birth: this.state.birth ,
-              // // alignment: this.state. ,
-              // // gender: this.state. ,
-              // race: this.state.race , 
-              // // height_feet: this.state. , 
-              // eye_color: this.state.eye , 
-              // hair_color: this.state.hair , 
-              // occupation: this.state.occupation , 
-              // group_affiliation: this.state.groups , 
-              // relatives: this.state.relatives
+              name: this.state.name,
+              intelligence: this.state.ini ,
+              strength: this.state.str , 
+              speed: this.state.speed , 
+              durability: this.state.dur , 
+              power: this.state.pow , 
+              combat: this.state.com , 
+              full_name: this.state.rname ,
+              aliases: this.state.aliase ,
+              place_of_birth: this.state.birth ,
+              // alignment: this.state. ,
+              // gender: this.state. ,
+              race: this.state.race , 
+              // height_feet: this.state. , 
+              eye_color: this.state.eye , 
+              hair_color: this.state.hair , 
+              occupation: this.state.occupation , 
+              group_affiliation: this.state.groups , 
+              relatives: this.state.relatives
               // image_url
             })
         })
         .then(res => res.json())
         .then(data => {
-          
+           this.props.updateState(data)
         })
-        // .then(data => {
-        //   console.log(data)
-        // })
+        this.props.history.push('/')
       }
 
     render() {
@@ -90,7 +88,7 @@ export class NewSuper extends Component {
     
               <input name="name" onChange={ this.changeThisNow } type="text" className="name entry" value={ this.state.name } placeholder="Name"/>
     
-              {/* <input name="rname" onChange={ this.changeThisNow } type="text" className="real_name entry" value={ this.state.rname } placeholder="Real Name"/>
+              <input name="rname" onChange={ this.changeThisNow } type="text" className="real_name entry" value={ this.state.rname } placeholder="Real Name"/>
     
               <input name="aliase" onChange={ this.changeThisNow } type="text" className="aliases entry" value={ this.state.aliase } placeholder="Aliases"/>
     
@@ -118,7 +116,7 @@ export class NewSuper extends Component {
     
               Power<input name="pow" onChange={ this.changeThisNow } type="number" value={ this.state.pow } className="power entry" />
     
-              Combat<input name="com" onChange={ this.changeThisNow } type="number" value={ this.state.com } className="combat entry" /> */}
+              Combat<input name="com" onChange={ this.changeThisNow } type="number" value={ this.state.com } className="combat entry" />
     
               <button className="submit entry">Submit</button>
             </form>  
@@ -134,3 +132,4 @@ export class NewSuper extends Component {
 }
 
 export default NewSuper;
+
