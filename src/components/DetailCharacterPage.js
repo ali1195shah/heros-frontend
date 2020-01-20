@@ -44,15 +44,49 @@ export class DetailCharacterPage extends Component {
     </center>
   
 
-    <center>
+    {/* <center>
         <button id={ this.props.character.id }>{ this.props.character.alignment === 'good' ? 'Edit this Hero' : 'Edit this Villain'}</button>
         &nbsp;&nbsp;
         <button id={ this.props.character.id } onClick={ this.deleteHero }>
-            {/* { this.props.character.alignment === 'good' ? 'Delete this Hero' : 'Delete this Villain'} */}
+            { this.props.character.alignment === 'good' ? 'Delete this Hero' : 'Delete this Villain'}
             </button>
         &nbsp;&nbsp;
         <button id={ this.props.character.id } onClick={ this.props.goBack } >Go Back</button>
-    </center>
+
+    </center> */}
+
+{/* <div className="" style={{textAlign: "center", marginTop: '5%'}}>
+  <button className="icon-btn add-btn">
+    <div className="add-icon"></div>
+    <div className="btn-txt">Add</div>
+  </button>
+</div>
+<div className="" style={{textAlign: "center", marginTop: '8px'}}>
+  <button className="icon-btn add-btn">  
+    <div className="btn-txt">Remove</div>
+  </button>
+</div> */}
+<div>
+  <button className="icon-btn add-btn">
+    <div className="add-icon"></div>
+    <div className="btn-txt">{ this.props.character.alignment === 'good' ? 'Edit this Hero' : 'Edit this Villain'}</div>
+  </button>
+
+  <button className="icon-btn add-btn" onClick={ this.deleteHero }>  
+    <div className="add-icon"></div>
+    <div className="btn-txt">{ this.props.character.alignment === 'good' ? 'Delete this Hero' : 'Delete this Villain'}</div>
+  </button>
+
+  <button className="icon-btn add-btn" onClick={ this.props.goBack } >  
+    <div className="add-icon"></div>
+    <div className="btn-txt">Go Back</div>
+  </button>
+ </div>
+
+
+
+
+ 
     
 </div>
                 :

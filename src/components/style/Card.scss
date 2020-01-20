@@ -1,54 +1,68 @@
-/* .column1 {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-/* } */
+// /* .column1 {
+//   float: left;
+//   width: 50%;
+//   padding: 10px;
+//   height: 300px; /* Should be removed. Only for demonstration */
+// /* } */
 
-/* Clear floats after the columns */
-/* .row1:after {
-  content: "";
-  display: table;
-  clear: both;
-} */
+// /* Clear floats after the columns */
+// /* .row1:after {
+//   content: "";
+//   display: table;
+//   clear: both;
+// } */
 
-/* List */
-ul {
-  counter-reset: index;  
-  padding: 0;
-  max-width: 300px;
-}
+// /* List */
+// // ul {
+// //   counter-reset: index;  
+// //   padding: 0;
+// //   max-width: 300px;
+// // }
 
-/* List element */
+// // /* List element */
+// // li {
+// //   counter-increment: index; 
+// //   display: flex;
+// //   align-items: center;
+// //   padding: 12px 0;
+// //   box-sizing: border-box;
+// // }
+
+
+// // /* Element counter */
+// // li::before {
+// //   content: counters(index, ".", decimal-leading-zero);
+// //   font-size: 1.5rem;
+// //   text-align: right;
+// //   font-weight: bold;
+// //   min-width: 50px;
+// //   padding-right: 12px;
+// //   font-variant-numeric: tabular-nums;
+// //   align-self: flex-start;
+// //   background-image: linear-gradient(to bottom, aquamarine, orangered);
+// //   background-attachment: fixed;
+// //   -webkit-background-clip: text;
+// //   -webkit-text-fill-color: transparent;
+// // }
+
+
+// // /* Element separation */
+// // li + li {
+// //   border-top: 1px solid rgba(255,255,255,0.2);
+// // }
+
+
+
+
+
+
+
+
+
+
+
 li {
-  counter-increment: index; 
-  display: flex;
-  align-items: center;
-  padding: 12px 0;
-  box-sizing: border-box;
-}
-
-
-/* Element counter */
-li::before {
-  content: counters(index, ".", decimal-leading-zero);
-  font-size: 1.5rem;
-  text-align: right;
-  font-weight: bold;
-  min-width: 50px;
-  padding-right: 12px;
-  font-variant-numeric: tabular-nums;
-  align-self: flex-start;
-  background-image: linear-gradient(to bottom, aquamarine, orangered);
-  background-attachment: fixed;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-
-/* Element separation */
-li + li {
-  border-top: 1px solid rgba(255,255,255,0.2);
+  color: rgb(255, 255, 255);
 }
 
 
@@ -58,6 +72,44 @@ li + li {
 
 
 
+// // @use postcss-preset-env {
+// //   stage: 0;
+// //   autoprefixer: {
+// //     grid: true;
+// //   }
+// //   browsers: last 2 versions
+// // }
+
+
+
+
+
+
+
+
+// // tbody {
+// //   display: table-row-group;
+// //   vertical-align: middle;
+// //   border-color: inherit;
+// // }
+
+// // tr {
+// //   display: table-row;
+// //   vertical-align: inherit;
+// //   border-color: inherit;
+// // }
+
+// // th {
+// //   display: table-cell;
+// //   vertical-align: inherit;
+// //   font-weight: bold;
+// //   text-align: -internal-center;
+// // }
+
+// // td {
+// //   display: table-cell;
+// //   vertical-align: inherit;
+// // }
 
 
 
@@ -68,44 +120,191 @@ li + li {
 
 
 
+// button {
+//   position:relative;
+//   padding: 10px 20px;  
+//   border: none;
+//   background: none;
+//   cursor: pointer;
+  
+//   font-family: "Source Code Pro";
+//   font-weight: 900;
+//   text-transform: uppercase;
+//   font-size: 30px;  
+//   color: var(--text-color);
+  
+//   background-color: var(--btn-color);
+//   box-shadow: var(--shadow-color) 2px 2px 22px;
+//   border-radius: 4px; 
+//   z-index: 0;  
+//   overflow: hidden;   
+// }
+
+// button:focus {
+//   outline-color: transparent;
+//   box-shadow: var(--btn-color) 2px 2px 22px;
+// }
+
+// .right::after, button::after {
+//   content: var(--content);
+//   display: block;
+//   position: absolute;
+//   white-space: nowrap;
+//   padding: 40px 40px;
+//   pointer-events:none;
+// }
+
+// button::after{
+//   font-weight: 200;
+//   top: -30px;
+//   left: -20px;
+// } 
+
+// .right, .left {
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+// }
+// .right {
+//   left: 66%;
+// }
+// .left {
+//   right: 66%;
+// }
+// .right::after {
+//   top: -30px;
+//   left: calc(-66% - 20px);
+  
+//   background-color: var(--bg-color);
+//   color:transparent;
+//   transition: transform .4s ease-out;
+//   transform: translate(0, -90%) rotate(0deg)
+// }
+
+// button:hover .right::after {
+//   transform: translate(0, -47%) rotate(0deg)
+// }
+
+// button .right:hover::after {
+//   transform: translate(0, -50%) rotate(-7deg)
+// }
+
+// button .left:hover ~ .right::after {
+//   transform: translate(0, -50%) rotate(7deg)
+// }
+
+// /* bubbles */
+// button::before {
+//   content: '';
+//   pointer-events: none;
+//   opacity: .6;
+//   background:
+//     radial-gradient(circle at 20% 35%,  transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
+//     radial-gradient(circle at 75% 44%, transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
+//     radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);
+
+//   width: 100%;
+//   height: 300%;
+//   top: 0;
+//   left: 0;
+//   position: absolute;
+//   animation: bubbles 5s linear infinite both;
+// }
+
+// @keyframes bubbles {
+//   from {
+//     transform: translate();
+//   }
+//   to {
+//     transform: translate(0, -66.666%);
+//   }
+// }
 
 
-@use postcss-preset-env {
-  stage: 0;
-  autoprefixer: {
-    grid: true;
-  }
-  browsers: last 2 versions
+
+.main-hr {
+  width: 30%;
+  border: none;
+  border-top: 1px solid #c3c3c3;
 }
-
-
-
-
-
-
-
-
-tbody {
-  display: table-row-group;
-  vertical-align: middle;
-  border-color: inherit;
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #cdcdcd;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.2s ease-in-out;
 }
-
-tr {
-  display: table-row;
-  vertical-align: inherit;
-  border-color: inherit;
+.add-btn:hover {
+  width: 150px;
 }
-
-th {
-  display: table-cell;
-  vertical-align: inherit;
-  font-weight: bold;
-  text-align: -internal-center;
+.add-btn::before,
+.add-btn::after {
+  transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 10px;
+  top: calc(50% - 2px);
+  background: red;
 }
-
-td {
-  display: table-cell;
-  vertical-align: inherit;
+.add-btn::after {
+  right: 14px;
+  overflow: hidden;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
-
+.add-btn::before {
+  left: 14px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.icon-btn:focus {
+  outline: none;
+}
+.btn-txt {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.add-btn:hover::before,
+.add-btn:hover::after {
+  width: 4px;
+  border-radius: 2px;
+}
+.add-btn:hover .btn-txt {
+  opacity: 1;
+}
+.add-icon::after,
+.add-icon::before {
+  transition: all 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 2px;
+  top: calc(50% - 10px);
+  background: red;
+  overflow: hidden;
+}
+.add-icon::before {
+  left: 22px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.add-icon::after {
+  right: 22px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.add-btn:hover .add-icon::before {
+  left: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
+.add-btn:hover .add-icon::after {
+  right: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
