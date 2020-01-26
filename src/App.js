@@ -5,13 +5,16 @@ import DetailChatacterPage from './components/DetailCharacterPage'
 import './App.css'
 import Header from './components/Header'
 import NewSuper from './components/NewSuper'
+import Login from './components/Login'
 
 
 export class App extends Component {
 
   state = {
     allCharacters: [],
-    singleCharacter: null
+    singleCharacter: null,
+    token: localStorage.token,
+    loggedInUserId: localStorage.userId
   }
 
   componentDidMount = async() => {
@@ -64,19 +67,25 @@ export class App extends Component {
     })
   }
 
+logInSubmitted = (e) => {
+  e.preventDefault();
+  console.log('clicked')
+}
 
   render() {
     // console.log(this.state);
     return (
       <div className='app'>
+      {this.state.singleCharacter ? <Redirect to="/character-detail" /> : <Redirect to="/" />}
         <Header goBack={ this.goBack }/>
         <br />
-      {this.state.singleCharacter ? <Redirect to="/character-detail" /> : <Redirect to="/" />}
         <Switch>
+          <Route exact path={'/login'} render={(props) => <Login logInSubmitted={ this.logInSubmitted } login={ this.login } loginUsername={ this.state.loginUsername } tokan={ this.state.tokan }/>} />
           <Route exact path={'/'} render={(props) => <AllCharacters allCharacters={ this.state.allCharacters } handleClick={ this.handleClick }/> }/>
           <Route exact path={'/character-detail'} render={(props) => <DetailChatacterPage character={ this.state.singleCharacter } goBack={ this.goBack } deleteSuper={ this.deleteSuper } {...props} />} />
           <Route exact path={'/new-sv'} render={(props) => <NewSuper {...props} updateState={ this.updateState }  /> }/>
         </Switch>
+        {this.state.token ? null : <Redirect to='/login' />}
       </div>
     );
   }

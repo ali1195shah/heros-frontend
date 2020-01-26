@@ -46,7 +46,7 @@ const Character = (props) => {
     <img src={ props.character.image_url } alt="Albert Einstein" />
   </div>
   <div className="name">
-    <a onClick={ () => props.handleClick(props.character) } >{ props.character.name }</a>
+    <a  onClick={ () => props.handleClick(props.character) }>{ props.character.name }</a>
     <h6 title="Followers"><i className="fas fa-users"></i> <span className="followers">{ overAll }</span></h6>
   </div>
   <div className="button">

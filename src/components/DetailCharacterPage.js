@@ -66,22 +66,23 @@ export class DetailCharacterPage extends Component {
     <div className="btn-txt">Remove</div>
   </button>
 </div> */}
-<div>
+<center>
   <button className="icon-btn add-btn">
     <div className="add-icon"></div>
     <div className="btn-txt">{ this.props.character.alignment === 'good' ? 'Edit this Hero' : 'Edit this Villain'}</div>
   </button>
-
+<br />
   <button className="icon-btn add-btn" onClick={ this.deleteHero }>  
     <div className="add-icon"></div>
     <div className="btn-txt">{ this.props.character.alignment === 'good' ? 'Delete this Hero' : 'Delete this Villain'}</div>
   </button>
-
+<br />
   <button className="icon-btn add-btn" onClick={ this.props.goBack } >  
     <div className="add-icon"></div>
     <div className="btn-txt">Go Back</div>
   </button>
- </div>
+</center>
+ 
 
 
 
