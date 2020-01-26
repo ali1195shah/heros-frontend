@@ -2,7 +2,6 @@ import React from 'react';
 import './style/login.scss'
 
 const Login = (props) => {
-    console.log(props)
     return (
         <div style={{textAlign: "Center", marginTop:"10%", fontFamily: "Courier New, Monospace", fontWeight: "100", color: "white"}}>
             <section>
@@ -13,7 +12,7 @@ const Login = (props) => {
                     <br></br>
                     <label  htmlFor="log_in_username">Username</label>
                     <br></br>
-                    <input  id="log_in_username" 
+                    <input onChange={(e) => props.changeUsername(e) } id="log_in_username" 
                             type="text" 
                             name="username" />
                             <br></br>
@@ -21,7 +20,7 @@ const Login = (props) => {
 
                     <label  htmlFor="log_in_password">Password</label>
                     <br></br>
-                    <input  id="log_in_password" 
+                    <input onChange={(e) => props.changePassword(e) } id="log_in_password" 
                             type="password" 
                             name="password"/>
                             <br></br>

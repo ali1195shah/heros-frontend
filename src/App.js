@@ -14,7 +14,9 @@ export class App extends Component {
     allCharacters: [],
     singleCharacter: null,
     token: localStorage.token,
-    loggedInUserId: localStorage.userId
+    loggedInUserId: localStorage.userId,
+    username: '',
+    password: ''
   }
 
   componentDidMount = async() => {
@@ -67,20 +69,64 @@ export class App extends Component {
     })
   }
 
-logInSubmitted = (e) => {
-  e.preventDefault();
-  console.log('clicked')
+  logInSubmitted = (event) => {
+    event.preventDefault()
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password
+      })
+    })
+    .then(response => response.json())
+    .then(res_obj => {
+      
+      console.log(res_obj)
+      if (res_obj.errors) {
+        
+      } else {
+        this.setToken(res_obj)
+        // this.props.getUser(res_obj)
+        // this.props.history.push('/movies')
+      }
+    })
+  }
+
+setToken = ({ token, user_id })  =>{
+  localStorage.token = token
+  localStorage.setItem("token", token)
+  localStorage.userId = user_id
+  this.setState({
+    token: token,
+    loggedInUserId: user_id
+  })
+}
+
+changeUsername = (e) => {
+  this.setState({
+    username: e.target.value
+  })
+}
+
+changePassword = (e) => {
+  this.setState({
+    password: e.target.value
+  })
 }
 
   render() {
-    // console.log(this.state);
+    console.log(this.state.username);
+    console.log(this.state.password);
     return (
       <div className='app'>
       {this.state.singleCharacter ? <Redirect to="/character-detail" /> : <Redirect to="/" />}
         <Header goBack={ this.goBack }/>
         <br />
         <Switch>
-          <Route exact path={'/login'} render={(props) => <Login logInSubmitted={ this.logInSubmitted } login={ this.login } loginUsername={ this.state.loginUsername } tokan={ this.state.tokan }/>} />
+          <Route exact path={'/login'} render={(props) => <Login changeUsername={ this.changeUsername } changePassword={ this.changePassword } logInSubmitted={ this.logInSubmitted } login={ this.login } loginUsername={ this.state.username } password={ this.state.password } tokan={ this.state.tokan }/>} />
           <Route exact path={'/'} render={(props) => <AllCharacters allCharacters={ this.state.allCharacters } handleClick={ this.handleClick }/> }/>
           <Route exact path={'/character-detail'} render={(props) => <DetailChatacterPage character={ this.state.singleCharacter } goBack={ this.goBack } deleteSuper={ this.deleteSuper } {...props} />} />
           <Route exact path={'/new-sv'} render={(props) => <NewSuper {...props} updateState={ this.updateState }  /> }/>
