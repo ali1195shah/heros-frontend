@@ -79,10 +79,11 @@ setToken = ({ token, user_id })  =>{
 }
 
   render() {
+    console.log(this.state.token)
     return (
       <div className='app'>
+        <Header token={this.state.token} goBack={ this.goBack }/>
       {this.state.singleCharacter ? <Redirect to="/character-detail" /> : <Redirect to="/heros-vs-villains" />}
-        <Header goBack={ this.goBack }/>
         <br />
         <Switch>
           <Route exact path={'/login'} render={(props) => <Login {...props} setToken={ this.setToken } tokan={ this.state.tokan }/>} />

@@ -10,7 +10,7 @@ const Navbar = (props) => {
       {props.token ? 
       <div className="topnav">
            
-              <Link to='/'>
+              <Link to='/heros-vs-villains'>
                 <button className="glow-on-hover" type="button"><img onClick={ props.goBack } src='https://heroesvvillains.com/image/cache/Heroes_v_Villains_Tab-600x315.png' alt="logo"/></button>
               </Link>
                
