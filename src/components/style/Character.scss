@@ -18,26 +18,26 @@ body {
 
 .card {
   // position: absolute;
-  margin: auto;
+  // margin: auto;
 //   top: 0;
 //   right: 0;
 //   bottom: 0;
 //   left: 0;
-  width: 250px;
+  width: 100%;
   height: 500px;
-  border-radius: 10px;
+  // border-radius: 10px;
   box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
   background: #151515;
   overflow: hidden;
   .ds-top {
     position: absolute;
     margin: auto;
-    top: 0;
-    right: 0;
-    left: 0;
-    width: 300px;
-    height: 80px;
-    background: crimson;
+    // top: 0;
+    // right: 0;
+    // left: 0;
+    // width: 300px;
+    height: 15%;
+    // background: crimson;
     animation: dsTop 1.5s;
   }
   .avatar-holder {
@@ -46,8 +46,8 @@ body {
     top: 40px;
     right: 0;
     left: 0;
-    width: 100px;
-    height: 100px;
+    width: 35%;
+    height: 20%;
     border-radius: 50%;
     box-shadow: 0 0 0 5px #151515,
                 inset 0 0 0 5px #000000,
@@ -66,12 +66,12 @@ body {
   .name {
     position: absolute;
     margin: auto;
-    top: -255px;
+    top: -36%;
     right: 0;
     bottom: 0;
     left: 0;
     width: inherit;
-    height: 40px;
+    height: 7%;
     text-align: center;
     animation: fadeIn 2s ease-in;
     a {
@@ -98,7 +98,7 @@ body {
     position: absolute;
     margin: auto;
     padding: 8px;
-    top: -170px;
+    top: -25%;
     right: 0;
     bottom: 0;
     left: 0;
@@ -124,10 +124,10 @@ body {
   .ds-info {
     position: absolute;
     margin: auto;
-    top: 10px;
+    top: 5%;
     bottom: 0;
     right: 0;
-    left: 0;
+    left: 10%;
     width: inherit;
     height: 130px;
     display: flex;
@@ -141,7 +141,7 @@ body {
       animation-fill-mode: forwards;
       h6 {
         text-transform: uppercase;
-        color: crimson;
+        color: rgb(255, 255, 255);
       }
       p {
         font-size: 12px;
@@ -159,22 +159,23 @@ body {
   .ds-skill {
     position: absolute;
     margin: auto;
-    bottom: 10px;
+    // bottom: 10px;
+    top: 50%;
     right: 0;
     left: 0;
-    width: 200px;
-    height: 300px;
+    width: 80%;
+    // height: 300px;
     animation: mvBottom 1.0s;
     h6 {
       margin-bottom: 5px;
       font-weight: 700;
       text-transform: uppercase;
-      color: crimson;
+      color: rgb(255, 255, 255);
     }
     .skill {
       h6 {
-        font-weight: 400;
-        font-size: 8px;
+        // font-weight: 400;
+        font-size: 10px;
         letter-spacing: 0.05em;
         margin: 4px 0;
         color: white;
@@ -185,11 +186,11 @@ body {
       }
       .bar {
         height: 5px;
-        background: crimson;
+        // background: rgb(20, 220, 87);
         text-align: right;
         p {
           color: white;
-          font-size: 8px;
+          font-size: 10px;
           padding-top: 5px;
           animation: fadeIn 5s;
         }

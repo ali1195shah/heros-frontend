@@ -6,6 +6,7 @@ import './App.css'
 import Header from './components/Header'
 import NewSuper from './components/NewSuper'
 import Login from './components/Login'
+import FavSuper from './components/FavSuper'
 
 
 export class App extends Component {
@@ -84,12 +85,13 @@ setToken = ({ token, user_id })  =>{
       <div className='app'>
         <Header token={this.state.token} goBack={ this.goBack }/>
       {this.state.singleCharacter ? <Redirect to="/character-detail" /> : <Redirect to="/heros-vs-villains" />}
-        <br />
+        {/* <br /> */}
         <Switch>
           <Route exact path={'/login'} render={(props) => <Login {...props} setToken={ this.setToken } tokan={ this.state.tokan }/>} />
           <Route exact path={'/heros-vs-villains'} render={(props) => <AllCharacters {...props} allCharacters={ this.state.allCharacters } handleClick={ this.handleClick }/> }/>
           <Route exact path={'/character-detail'} render={(props) => <DetailChatacterPage character={ this.state.singleCharacter } goBack={ this.goBack } deleteSuper={ this.deleteSuper } {...props} />} />
           <Route exact path={'/new-sv'} render={(props) => <NewSuper {...props} updateState={ this.updateState }  /> }/>
+          <Route exact path={'/favorite-supers'} render={(props)=> <FavSuper {...props} /> } />
         </Switch>
         {this.state.token ? null : <Redirect to='/login' />}
       </div>

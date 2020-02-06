@@ -17,6 +17,10 @@ const Navbar = (props) => {
               <Link to='/new-sv'>
                 <button className="glow-on-hover" type="button">New Super/Villain</button>
               </Link>
+
+              <Link to='/favorite-supers'>
+                <button className="glow-on-hover" type="button">Favorite's List</button>
+              </Link>
             
               </div>
               : null }
