@@ -10,18 +10,24 @@ const Navbar = (props) => {
       {props.token ? 
       <div className="topnav">
            
-              <Link to='/heros-vs-villains'>
+              <Link to='/heros-vs-villains' >
                 <button className="glow-on-hover" type="button"><img onClick={ props.goBack } src='https://heroesvvillains.com/image/cache/Heroes_v_Villains_Tab-600x315.png' alt="logo"/></button>
               </Link>
                
-              <Link to='/new-sv'>
-                <button className="glow-on-hover" type="button">New Super/Villain</button>
+              <Link to='/new-sv' >
+                <button style={{fontFamily: 'Comic Sans MS'}} className="glow-on-hover" type="button"> New Super/Villain </button>
               </Link>
 
-              <Link to='/favorite-supers'>
-                <button className="glow-on-hover" type="button">Favorite's List</button>
+              <Link to='/favorite-supers' >
+                <button style={{fontFamily: 'Comic Sans MS'}} className="glow-on-hover" type="button"> Favorite's List </button>
               </Link>
-            
+              
+              <Link to='/ramdom-hero/villain'>
+                <button onClick={() => props.ramdomCharacter()} style={{fontFamily: 'Comic Sans MS'}} className="glow-on-hover" type="button"> Ramdom Hero or Villain </button>
+              </Link>
+
+      <p style={{color: 'white', fontFamily: 'Comic Sans MS', position: 'absolute', right: '0', paddingTop: '2%', paddingRight: '2%'}}>Welcome { props.userName }</p>
+
               </div>
               : null }
        </div>
