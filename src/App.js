@@ -15,6 +15,7 @@ export class App extends Component {
   state = {
     allCharacters: [],
     singleCharacter: null,
+    ramdomCharacter: null,
     token: localStorage.token,
     loggedInUserId: localStorage.userId,
     username: localStorage.userName
@@ -88,7 +89,7 @@ ramdomCharacter = () => {
   const rhv = Math.floor(Math.random() * length) + 1
   // console.log(length, rhv)
   this.setState({
-    singleCharacter: this.state.allCharacters.find(char => char.id === rhv)
+    ramdomCharacter: this.state.allCharacters.find(char => char.id === rhv)
   })
 }
 
@@ -105,7 +106,7 @@ ramdomCharacter = () => {
           <Route exact path={'/character-detail'} render={(props) => <DetailChatacterPage character={ this.state.singleCharacter } goBack={ this.goBack } deleteSuper={ this.deleteSuper } {...props} />} />
           <Route exact path={'/new-sv'} render={(props) => <NewSuper {...props} updateState={ this.updateState }  /> }/>
           <Route exact path={'/favorite-supers'} render={(props)=> <FavSuper {...props} /> } />
-          <Route exact path={'/ramdom-hero/villain'} render={(props)=> <RamdomSuper {...props} character={ this.state.singleCharacter }/> } />
+          <Route exact path={'/ramdom-hero/villain'} render={(props)=> <RamdomSuper {...props} goBack={ this.goBack } character={ this.state.ramdomCharacter }/> } />
         </Switch>
         {this.state.token ? null : <Redirect to='/login' />}
       </div>

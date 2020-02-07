@@ -11,7 +11,10 @@ const Navbar = (props) => {
       <div className="topnav">
            
               <Link to='/heros-vs-villains' >
-                <button className="glow-on-hover" type="button"><img onClick={ props.goBack } src='https://heroesvvillains.com/image/cache/Heroes_v_Villains_Tab-600x315.png' alt="logo"/></button>
+                <button className="glow-on-hover" type="button">
+                  {/* <img onClick={ props.goBack } src='https://heroesvvillains.com/image/cache/Heroes_v_Villains_Tab-600x315.png' alt="logo"/> */}
+                  All Supers
+                  </button>
               </Link>
                
               <Link to='/new-sv' >

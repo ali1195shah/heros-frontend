@@ -86,7 +86,7 @@ export class NewSuper extends Component {
                 <option value="B">Villian</option>
             </select>
     
-              <input name="name" onChange={ this.changeThisNow } type="text" className="name entry" value={ this.state.name } placeholder="Name"/>
+              <input name="name" onChange={ this.changeThisNow } type="text" className="n entry" value={ this.state.name } placeholder="Name"/>
     
               <input name="rname" onChange={ this.changeThisNow } type="text" className="real_name entry" value={ this.state.rname } placeholder="Real Name"/>
     
