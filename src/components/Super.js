@@ -4,14 +4,23 @@ import '../styles/super.css'
 const Super = (props) => {
     const char = props.character
     const powerLevel = Math.round((char.intelligence + char.strength + char.speed + char.durability + char.power + char.combat) / 6)
+
     return (
   <div key={ char.id } className="col-sm-8 col-lg-4 col-md-6">
       <div className="our-team">
         <div className="picture">
           <img className="img-fluid" alt="pic" src={ char.image_url } style={{height: "130px"}}/>
         </div>
+        <br />
+
+        <div className="buttons">
+          <div className="container-btn">
+              <p onClick={ () => props.aboutSuper(char) } className="btn effect04" data-sm-link-text="Info"><span>More</span></p>
+          </div>
+        </div>
+
         <div className="team-content">
-    <h3 className="name">{ char.id } { char.name }</h3>
+    <h3 className="name">{ char.name }</h3>
             <h4 className="title">Power Level: { powerLevel }</h4>
         </div>
         <ul className="social">
