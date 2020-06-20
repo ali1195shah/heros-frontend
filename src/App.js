@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, Redirect, withRouter } from 'react-router-dom'
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import Login from './components/Login.js'
 import AllSupers from './components/AllSupers.js'
 import AboutSuper from './components/AboutSuper.js'
 import Navbar from './components/Bar.js'
+import EditSuper from './components/EditSuper.js'
+import NewSuper from './components/NewSuper.js'
 
 export class App extends Component {
 
@@ -53,7 +55,6 @@ setToken = ({ token, user_id, userName }) => {
     token: token,
     loggedInUserId: user_id,
     username: userName,
-    login: true
   })
 }
 
@@ -61,29 +62,55 @@ signOut = () => {
   this.setState({
     token: null,
     loggedInUserId: null,
-    username: null,
-    login: false
+    username: null
   })
   localStorage.clear()
 }
 
 aboutSuper = (e) => {
-  this.props.history.push("/about")
   this.setState({
     superDetails: e
   })
+  this.props.history.push("/about")
 }
+
+editSuper = (e) => {
+  this.props.history.push(`/edit-super/${this.state.superDetails.name}`)
+}
+
+updateState = (data) => {
+  this.setState({
+    allCharacters: [...this.state.allCharacters, data]
+  })
+}
+
+deleteSuper = (e) => {
+  fetch(`http://localhost:3000/superheros/${e.id}` , {
+    method: "DELETE"
+  })
+  .then(this.setState({
+    allCharacters: this.state.allCharacters.filter(char => char.id !== e.id)
+  }))
+  this.props.history.push("/supers")
+}
+
+
+
+
+
 render() {
     return (
-      <BrowserRouter>
-      {this.state.login ? null : <Redirect to='/' /> }
-      <Navbar signOut={ this.signOut } ifLogin={ this.state.login }/>
+      <div>
+      {this.state.token ? null : <Redirect to='/' /> }
+      <Navbar signOut={ this.signOut } token={ this.state.token }/>
         <Switch>
           <Route exact path={'/'} render={(props) => <Login {...props} setToken={ this.setToken }/> } />
           <Route exact path={'/supers'} render={(props) => <AllSupers {...props} allCharacters={ this.state.allCharacters } aboutSuper={ this.aboutSuper } /> } />
-          <Route exact path={`/about`} render={(props) => <AboutSuper {...props} superDetails={ this.state.superDetails } /> } />
+          <Route exact path={`/about`} render={(props) => <AboutSuper {...props} editSuper={ this.editSuper } deleteSuper={ this.deleteSuper } superDetails={ this.state.superDetails } /> } />
+          <Route exact path={`/edit-super/${this.state.superDetails.name}`} render={(props) => <EditSuper {...props} superDetails={ this.state.superDetails } /> } />
+          <Route exact path={`/new-super`} render={(props) => <NewSuper {...props} updateState={ this.updateState } /> } />
         </Switch>
-      </BrowserRouter>
+      </div>
     );
   }
 }
